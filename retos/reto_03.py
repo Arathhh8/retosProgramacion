@@ -73,7 +73,11 @@ def passwordGeneration(password_type):
     random_string = ''.join([random.choice(letters) for _ in range(range_string)])    
     random_numeric = ''.join([str(random.randint(0, 9)) for _ in range(range_numeric)])
     random_symbol = ''.join([random.choice(symbols) for _ in range(range_symbol)])
-    password = random_string + random_numeric + random_symbol
+
+    # crea una lista con todos los caracteres de la contraseña
+    password_chars = list(random_string + random_numeric + random_symbol) #se crea una lista con los caracteres
+    random.shuffle(password_chars) # mezclar aleatoriamente los caracteres 
+    password = ''.join(password_chars)
 
     print(password)
 
